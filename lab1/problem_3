@@ -1,0 +1,67 @@
+public class Temperature {
+    private double value;
+    private char scale;
+
+    
+    public Temperature() {
+        this.value = 0.0;
+        this.scale = 'C';
+    }
+
+  
+    public Temperature(double value) {
+        this.value = value;
+        this.scale = 'C';
+    }
+
+    
+    public Temperature(double value, char scale) {
+        this.value = value;
+        this.scale = (scale == 'C' || scale == 'F') ? scale : 'C';
+    }
+
+    
+    public Temperature(char scale) {
+        this.value = 0.0;
+        this.scale = (scale == 'C' || scale == 'F') ? scale : 'C';
+    }
+
+
+    public double toCelsius() {
+        if (scale == 'C') {
+            return value;
+        } else {
+            return 5.0 / 9.0 * (value - 32);
+        }
+    }
+
+    
+    public double toFahrenheit() {
+        if (scale == 'F') {
+            return value;
+        } else {
+            return (9.0 / 5.0 * value) + 32;
+        }
+    }
+
+   
+    public void setValue(double value) {
+        this.value = value;
+    }
+
+
+    public void setScale(char scale) {
+        if (scale == 'C' || scale == 'F') {
+            this.scale = scale;
+        }
+    }
+
+
+    public double getValue() {
+        return value;
+    }
+
+    public char getScale() {
+        return scale;
+    }
+}
